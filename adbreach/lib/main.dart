@@ -39,14 +39,19 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
+                final screenSize = MediaQuery.of(context).size;
+
+                final middleX = screenSize.width / 2;
+                final middleY = screenSize.height / 2;
+
                 startBubble(
                   bubbleOptions:BubbleOptions(
                     bubbleIcon: 'c',
-                    bubbleSize: 21,
+                    bubbleSize: 15,
                     enableClose: false,
                     distanceToClose: 0,
-                    startLocationX: 350,
-                    startLocationY: 750,
+                    startLocationX: middleX,
+                    startLocationY: middleY,
                     enableAnimateToEdge: false,
                     enableBottomShadow: false,
                     keepAliveWhenAppExit: true,
