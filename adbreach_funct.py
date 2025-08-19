@@ -2,6 +2,14 @@ import curses
 import subprocess
 import uiautomator2 as u2
 
+def get_x_y():
+    
+    x_and_y = subprocess.run("adb shell wm size | awk '{print $3}'",
+                             capture_output=True,
+                             text=True)
+    x, y = x_and_y.split("x")
+    return x_and_y.stdout
+
 def move_cursor(stdscr, x, y, max_x, max_y):
     while True:
         key = stdscr.getch()
@@ -74,3 +82,4 @@ def move_cursor(stdscr, x, y, max_x, max_y):
             else:
                 input_tap = False
             return x, y, input_tap
+        
