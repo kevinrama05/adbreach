@@ -65,7 +65,7 @@ def move_cursor(stdscr, x, y, max_x, max_y):
                 y = max_y
             elif y == max_y:
                 pass
-        elif key == in (10, 13, curses.KEY_ENTER):
+        elif key in (10, 13, curses.KEY_ENTER):
             d = u2.connect()
             d.click(x, y)
             focused = d(focused=True)
